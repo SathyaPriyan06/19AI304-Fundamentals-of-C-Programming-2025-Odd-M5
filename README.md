@@ -1,4 +1,4 @@
-# 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
+<img width="725" height="382" alt="image" src="https://github.com/user-attachments/assets/43948b87-b6c2-4ee8-95d4-dc506f1f3dfe" /># 19AI304-Fundamentals-of-C-Programming-2025-Odd-M5
 # IAPR-5- Module 5 - FoC
 ## 9. Implementation of recursion.
 ## 10. Implementation of programs using pointer arithmetic.
@@ -39,7 +39,44 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void swapv(int x, int y)
+{
+    int temp;
+    temp = x;
+    x = y;
+    y = temp;
+    printf("After swap (Call by Value): x=%d y=%d\n", x, y);
+}
+
+void swapr(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main()
+{
+    int a = 10, b = 20;
+
+    printf("Before swapv: a=%d b=%d\n", a, b);
+    swapv(a, b);
+    printf("After swapv: a=%d b=%d\n", a, b);
+
+    printf("\nBefore swapr: a=%d b=%d\n", a, b);
+    swapr(&a, &b);
+    printf("After swapr: a=%d b=%d\n", a, b);
+
+    return 0;
+}
+```
 # Output:
+<img width="783" height="359" alt="image" src="https://github.com/user-attachments/assets/4b829ce1-fbcd-48d8-afc9-7fd353d878c1" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +114,34 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int fibo(int x)
+{
+    if (x == 0 || x == 1)
+        return x;
+    else
+        return fibo(x - 1) + fibo(x - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci series:\n");
+    for (i = 0; i < n; i++)
+        printf("%d ", fibo(i));
+
+    return 0;
+}
+```
 # Output:
+<img width="741" height="294" alt="image" src="https://github.com/user-attachments/assets/548c897c-a43d-41cb-9478-17c664d1fbf7" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +183,39 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void printEvenOdd(int cur, int limit)
+{
+    if (cur > limit)
+        return;
+
+    printf("%d ", cur);
+
+    printEvenOdd(cur + 2, limit);
+}
+
+int main()
+{
+    int lower, upper;
+
+    printf("Enter lower limit: ");
+    scanf("%d", &lower);
+
+    printf("Enter upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Numbers:\n");
+    printEvenOdd(lower, upper);
+
+    return 0;
+}
+```
 # Output:
+<img width="818" height="263" alt="image" src="https://github.com/user-attachments/assets/d22f1e53-ffa7-490b-b98c-91d47fa725ec" />
+
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +257,42 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *ptr, n, i, sum = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    ptr = (int *)calloc(n, sizeof(int));
+
+    if (ptr == NULL)
+    {
+        printf("Memory allocation failed");
+        return 0;
+    }
+
+    printf("Enter elements:\n");
+    for (i = 0; i < n; i++)
+        scanf("%d", ptr + i);
+
+    for (i = 0; i < n; i++)
+        sum += *(ptr + i);
+
+    printf("Sum = %d", sum);
+
+    free(ptr);
+
+    return 0;
+}
+```
 # Output:
+<img width="725" height="382" alt="image" src="https://github.com/user-attachments/assets/0c7105a6-75be-4912-97e0-995d94ac2839" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +328,32 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+void displayArray(int *arr, int size)
+{
+    int i;
+    printf("Array elements:\n");
+    for (i = 0; i < size; i++)
+        printf("%d ", *(arr + i));
+}
+
+int main()
+{
+    int arr[5], i;
+
+    printf("Enter 5 elements:\n");
+    for (i = 0; i < 5; i++)
+        scanf("%d", &arr[i]);
+
+    displayArray(arr, 5);
+
+    return 0;
+}
+```
 # Output:
+<img width="836" height="408" alt="image" src="https://github.com/user-attachments/assets/b37cc74d-a1ca-4f45-a57d-277fd0917a84" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
